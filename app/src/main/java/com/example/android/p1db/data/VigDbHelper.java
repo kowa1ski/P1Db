@@ -8,12 +8,18 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Usuario on 21/08/2017.
  */
 
-                        // extendemos de SQLiteOpeHelper
+
 public class VigDbHelper extends SQLiteOpenHelper {
 
-    //Creamos los métodos y el constructor con la bombilla
-    public VigDbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    // Damos nombre a la base y numeramos la versión
+    private static final String DATABASE_NAME = "p1bd.sqlite";
+    private static final int DATABASE_VERSION = 1 ;
+
+
+    // Borramos los parámetros que no hacen falta porque le pasamos directamente
+    // los valores a la superclase desde aquí
+    public VigDbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
