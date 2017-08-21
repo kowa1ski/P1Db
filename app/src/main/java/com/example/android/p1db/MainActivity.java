@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonMostrar:
+
+                Intent intentMostrar = new Intent(this, MostrarActivity.class);
+                startActivity(intentMostrar);
+
                 break;
 
             default:

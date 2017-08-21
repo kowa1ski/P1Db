@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">P1Db</string>
     <string name="title_activity_agregar">AgregarActivity</string>
+    <string name="aqu_aparecer_el_listado">AQUÍ APARECERÁ EL LISTADO</string>
 </resources>
