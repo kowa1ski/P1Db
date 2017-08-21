@@ -2,4 +2,8 @@
     <string name="app_name">P1Db</string>
     <string name="title_activity_agregar">AgregarActivity</string>
     <string name="aqu_aparecer_el_listado">AQUÍ APARECERÁ EL LISTADO</string>
+    <string name="vaciado_de_campo" />
+    <string name="registro_insertado_correctamente">REGISTRO INSERTADO CORRECTAMENTE</string>
+    <string name="registro_no_insertado">REGISTRO NO INSERTADO, ERROR</string>
+    <string name="campos_vacios">Debe introducir al menos el nombre y la hora</string>
 </resources>
