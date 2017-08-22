@@ -109,11 +109,15 @@ public class MostrarActivity extends AppCompatActivity {
                 usuarioSeleccionado = position;
                 // Vamos a elaborar un , callBack,.
                 // Aquí , amc , será un tipo de objeto , callback,.
-                mActionMode = MostrarActivity.this.startActionMode(amc);
+                 // MUY ATENTO porque en el tutorial es, ... .this.starActionmode(... , y
+                // y me daba un error muy raro. Lo he solucionado con
+                // esa otra , startSupportActionMode , que por lo visto es la que se corresponde
+                // apropiadamente con el import , import android.support.v7.view.ActionMode;
+                mActionMode = MostrarActivity.this.startSupportActionMode(amc);
                 // Esto hay que escribirlo y ya está, no pregunto mucho más.
                 view.setSelected(true);
 
-                return false;
+                return true;
             }
         });
 
@@ -132,7 +136,7 @@ public class MostrarActivity extends AppCompatActivity {
             // y desaparecerá el error
             getMenuInflater().inflate(R.menu.opciones, menu);
 
-            return false;
+            return true;
         }
 
         @Override
@@ -149,7 +153,7 @@ public class MostrarActivity extends AppCompatActivity {
         public void onDestroyActionMode(ActionMode mode) {
 
         }
-    }
+    };
 
 
 
