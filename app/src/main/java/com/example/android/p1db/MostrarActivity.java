@@ -4,6 +4,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -21,6 +26,14 @@ public class MostrarActivity extends AppCompatActivity {
     private ArrayList<VigClass> vigClassArrayList = new ArrayList<>();
     private ListView listView;
 
+    // Declaramos esta variable poniéndola a , -1 , porque
+    // ese valor indica que no hay ninguno seleccionado.
+    // La usaremos en el , listener , del , onClick , ese largo que
+    // vamos a hacer en este paso.
+    private int usuarioSeleccionado = -1 ;
+    // Delaramos también este objeto que usaremos en el método del , listener ,.
+    private Object mActionMode;
+
 
 
     @Override
@@ -33,6 +46,7 @@ public class MostrarActivity extends AppCompatActivity {
 
         // Llamamos a un método para llenar la lista y lo generamos
         LlenarLista();
+        onClick();
 
     }
 
@@ -78,5 +92,82 @@ public class MostrarActivity extends AppCompatActivity {
 
     }
 
+    // Vamos a crear el método , onClick , para poner un listener y poder selecionar de la lista
+    private void onClick() {
+
+        // Primero le decimos que se va a tratar de una seleción , single , o sea que no es multiple
+        listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        // Ahora sí, le vamos a meter el , listener , de click largo
+        // OJO , que sea el que es, que sea el ITEM, setonITEMlonclicklistener
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override   // Este , Override , se ha generado sólo automáticamente al escribir el
+                        // interior del paréntesis de arriba.
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // El item seleccionado nos lo da la , position,.
+                usuarioSeleccionado = position;
+                // Vamos a elaborar un , callBack,.
+                // Aquí , amc , será un tipo de objeto , callback,.
+                mActionMode = MostrarActivity.this.startActionMode(amc);
+                // Esto hay que escribirlo y ya está, no pregunto mucho más.
+                view.setSelected(true);
+
+                return false;
+            }
+        });
+
+    }
+    // Es jodido pero vamos a construir ese , amc ,.
+    private ActionMode.Callback amc = new ActionMode.Callback() {
+        @Override           // Todos estos , Override , se han generado por arte de magia
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Este es el , Override , que nos hace falta. Vamos a por él.
+            // En , R.menu , todavia no hemos credo el menu que nos lo ç
+            // tragamos primero en rojo. Tenemos que crear un , android.resource.file ,
+            // en el menú de 1:Project y
+            // en , res , click derecho.
+            // Luego, que sea de nombre opciones,
+            // tipo menu y entonces se generará un xml
+            // y desaparecerá el error
+            getMenuInflater().inflate(R.menu.opciones, menu);
+
+            return false;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+
+        }
+    }
+
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
