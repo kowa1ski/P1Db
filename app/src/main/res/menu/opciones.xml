@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- Añadimos otra línea a la cabecera del menú-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Y por último añadimos los dos items-->
+    <item
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Eliminar"
+        android:id="@+id/eliminarItem"
+        app:showAsAction="always"
+        />
+    <!-- Hay que saber que el , app:showAsAction="always" , es
+    el que permite ver el icono de la papelera y el otro. De otra
+    manera, se vería sólo el título de un cuadro que caería de los
+    típicos tres puntitos. -->
+    <!-- También es importante el título porque si no
+     da un error en el item -->
+    <item
+    android:icon="@android:drawable/ic_menu_edit"
+    android:title="Eliminar"
+    android:id="@+id/editarItem"
+    app:showAsAction="always"
+    />
+
 
 </menu>
