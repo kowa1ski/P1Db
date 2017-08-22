@@ -1,6 +1,7 @@
 package com.example.android.p1db.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -50,4 +51,34 @@ public class VigDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
+    /*
+    Alternativamente al generador de listas con el Array quiero
+    hacerlo con un cursorAdapter así que aquí voy a crear un método para cargarlo
+     */
+    // Este método cargará las columnas
+    public Cursor CargarCursorContactos(Context context){
+
+        VigDbHelper dbHelper = new VigDbHelper(context);
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Creamos un , String[] , que contenga las columnas
+        // MUY MUY MUY IMPORTANTE !!!!!  DEBE CONTENER TODAS LAS COLUMNAS ESTE CURSOR !!! TODAS !!! SI NO -> FATAL EXCEPTION
+        String[] columnas = new String[]{VigEntry._ID, VigEntry.CN_NOMBRE, VigEntry.CN_APELLIDO, VigEntry.CN_PASS, VigEntry.CN_TIME};
+
+        // Ahora hacemos que este método devuelva el cursor preguntando
+        // la , query , correspondiente a la tabla. Es facil
+        return db.query(VigEntry.TABLE_NAME, columnas, null, null, null, null,null);
+
+    }
+
+
+
+
+
+
+
+
 }

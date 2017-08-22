@@ -4,15 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.android.p1db.MostrarActivity">
+    tools:context="com.example.android.p1db.MostrarConCursorActivity">
+
 
     <ListView
-        android:id="@+id/listViewDeRegistros"
+        android:id="@+id/listViewConCursor2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
-
-
-
+        android:layout_height="match_parent" />
 </LinearLayout>

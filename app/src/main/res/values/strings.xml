@@ -6,4 +6,5 @@
     <string name="registro_insertado_correctamente">REGISTRO INSERTADO CORRECTAMENTE</string>
     <string name="registro_no_insertado">REGISTRO NO INSERTADO, ERROR</string>
     <string name="campos_vacios">Debe introducir al menos el nombre y la hora</string>
+    <string name="title_activity_mostrar_con_cursor">MostrarConCursorActivity</string>
 </resources>

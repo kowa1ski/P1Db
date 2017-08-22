@@ -24,4 +24,14 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:id="@+id/buttonMostrarConCursor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/buttonAgregar"
+        android:layout_alignRight="@+id/buttonAgregar"
+        android:layout_below="@+id/buttonMostrar"
+        android:layout_marginTop="29dp"
+        android:text="Button" />
+
 </RelativeLayout>

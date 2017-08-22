@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonAgregar, buttonMostrar;
+    Button buttonAgregar, buttonMostrar, buttonMostrarConCursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonAgregar = (Button) findViewById(R.id.buttonAgregar);
         buttonMostrar = (Button) findViewById(R.id.buttonMostrar);
+        buttonMostrarConCursor = (Button) findViewById(R.id.buttonMostrarConCursor);
 
         buttonMostrar.setOnClickListener(this);
         buttonAgregar.setOnClickListener(this);
+        buttonMostrarConCursor.setOnClickListener(this);
 
 
     }
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentMostrar);
 
                 break;
+
+            case R.id.buttonMostrarConCursor:
+
+                Intent intentMostrarConCursor = new Intent(this, MostrarConCursorActivity.class);
+                startActivity(intentMostrarConCursor);
 
             default:
 
