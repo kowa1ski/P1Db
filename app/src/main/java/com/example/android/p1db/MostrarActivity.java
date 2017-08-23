@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.android.p1db.data.VigClass;
 import com.example.android.p1db.data.VigContract;
@@ -144,8 +145,23 @@ public class MostrarActivity extends AppCompatActivity {
             return false;
         }
 
+        // Preparamos este metodo para detectar cuándo se pulsa
+        // y qué botón de la barra se pulsa. También le damos
+        // funcionalidad al botón, en este caso, de eliminar.
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+
+            // queremos detectar cuándo se pulsa el icono de eliminar
+            // y le damos funcionalidad. El botón se
+            // llama en el xml , eliminarItem ,.
+            if (item.getItemId() == R.id.eliminarItem) {
+                // cuando se pulse llamaremos a la función , eliminarUsuario ,.
+                eliminarUsuario();
+                // Y le decimos que luego se cierre con la siguiente instrucción
+                mode.finish();
+            }
+
+
             return false;
         }
 
@@ -155,7 +171,58 @@ public class MostrarActivity extends AppCompatActivity {
         }
     };
 
+    // Para continuar hay que crear este méto el cual, a continuación
+    // va a decir lo que se tiene que hacer cuando se pulse aquel
+    // botón desde el que se le está invocando
+    private void eliminarUsuario() {
 
+        // Declaramos la base, como siempre...
+        VigDbHelper bh = new VigDbHelper(this);
+        // chequeamos que la conexión es buena con el , if, y
+        // cuando nos aseguremos de que lo es, seguimos con el
+        // código
+        if (bh != null) {
+            // ahora accedemos a la base, como siempre...
+            SQLiteDatabase db = bh.getReadableDatabase();
+            // Tenemos que saber el _id de usuario así que vamos a
+            // crear una variable donde vamos a pedir el , usuarioSeleccionado , que
+            // actualmente es una posición
+            VigClass usu = vigClassArrayList.get(usuarioSeleccionado);
+            // Ahora EJECUTAMOS LA ELIMINACIÓN y
+            // aprovechamos para meterla en una variable , long ,
+            // para medir si el resultado ha sido satisfactorio.
+            /*
+            Ojo que el paso anterior el muy importante porque crea una variable
+            de la clase , VigClass , donde se le pasa el , usuarioSelecionado , que es
+            una posición pero, al obtenerlo a través del , vigClassArrayList , que es un
+            array, pues lo convierte en un objeto de la clase VigClass. Una vez hecho eso, o sea,
+            una vez convertido en un objeto de esa clase, ponedemos, a continuación, pedirle
+            su _id para identificarlo y casarlo así en el interior de la columna donde
+            se quiere encontrar.
+             */
+            long response = db.delete(VigEntry.TABLE_NAME, VigEntry._ID + "=" + usu.get_id(), null);
+
+            // Ahora comprobamos que , response es satisfactorio, o sea, que
+            // el registro se ha borrado de la base.
+            if (response > 0 ) {
+                Toast.makeText(this, "Eliminado con exito", Toast.LENGTH_SHORT).show();
+                // comprobada la eliminación correcta lo que tenemos que hacer
+                // es borrar toda la lista primero.
+                /*
+                Tenemos que saber que , removeAll , forma parte de la librería
+                de los ArrayList.
+                 */
+                vigClassArrayList.removeAll(vigClassArrayList);
+                // Y por último volvemos a cargar la lista.
+                LlenarLista();
+
+
+            } else {
+                Toast.makeText(this, "ERROR", Toast.LENGTH_LONG).show();
+            }
+        }
+
+    }
 
 
 }
