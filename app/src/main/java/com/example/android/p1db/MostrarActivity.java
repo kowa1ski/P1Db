@@ -1,5 +1,6 @@
 package com.example.android.p1db;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -167,11 +168,19 @@ public class MostrarActivity extends AppCompatActivity {
 
                     break;
 
-                // Esto lo he codificado yo sólo. Le estoy dando funcionalidad al
-                // botón de eliminar. Hago una pequeña prueba con un , Toast ,
+                // Esto es el botón editar del lapicito en el menú
                 case R.id.editarItem :
 
-                    Toast.makeText(MostrarActivity.this, "el botón editar funciona", Toast.LENGTH_LONG).show();
+                    // Al igual que antes, nombramos una variable que comience a
+                    // averiguar el item elegido
+                    VigClass usu = vigClassArrayList.get(usuarioSeleccionado);
+                    // Ahora nombramos el , Intent ,.
+                    Intent in = new Intent(MostrarActivity.this, EditarActivity.class);
+                    // OJO !!  Le pasamos una variable al intent, una extra
+                    in.putExtra("idQueVieneConElIntent", usu.get_id());
+                    // Y le pegamos al , Intent ,
+                    startActivity(in);
+
 
                     break;
 
