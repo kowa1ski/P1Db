@@ -22,7 +22,7 @@ public class EditarActivity extends AppCompatActivity {
 
         // Recogemos los extras que llegan aquí desde el , Intent , de
         // la actividad , MostrarActivity ,.
-        Bundle extras = this.getIntent().getExtras();{
+        Bundle extras = this.getIntent().getExtras();
         // comprobamos que la variable extra del , Intent , viene cargada
         if(extras != null){
 
@@ -39,9 +39,6 @@ public class EditarActivity extends AppCompatActivity {
             editTextPass = (EditText) findViewById(R.id.editTextPass);
             editTextTime = (EditText) findViewById(R.id.editTextTime);
 
-
-
-        }
     }
 }
 
