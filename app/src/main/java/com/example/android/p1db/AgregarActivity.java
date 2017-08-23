@@ -3,15 +3,10 @@ package com.example.android.p1db;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.p1db.data.VigContract;
@@ -33,9 +28,9 @@ public class AgregarActivity extends AppCompatActivity implements View.OnClickLi
 
         // Vamos a meter los editText en unas variables
         nombre = (EditText) findViewById(R.id.editTextName);
-        apellido = (EditText) findViewById(R.id.editTextApellido);
-        pass = (EditText) findViewById(R.id.editTextPass);
-        time = (EditText) findViewById(R.id.editTextTime);
+        apellido = (EditText) findViewById(R.id.editTextApellidoEditable);
+        pass = (EditText) findViewById(R.id.editTextPassEditable);
+        time = (EditText) findViewById(R.id.editTextTimeEditable);
 
 
     }

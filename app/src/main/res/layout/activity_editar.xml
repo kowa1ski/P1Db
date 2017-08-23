@@ -9,7 +9,7 @@
     tools:context="com.example.android.p1db.EditarActivity">
 
     <EditText
-        android:id="@+id/editTextNombre"
+        android:id="@+id/editTextNombreEditable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -17,7 +17,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextApellido"
+        android:id="@+id/editTextApellidoEditable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -25,7 +25,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextPass"
+        android:id="@+id/editTextPassEditable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,7 +33,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/editTextTimeEditable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

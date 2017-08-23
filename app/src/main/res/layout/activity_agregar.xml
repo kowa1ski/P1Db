@@ -22,7 +22,7 @@
         android:inputType="textPersonName"/>
 
     <EditText
-        android:id="@+id/editTextApellido"
+        android:id="@+id/editTextApellidoEditable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/editTextName"
@@ -35,24 +35,24 @@
         android:inputType="textPersonName"/>
 
     <EditText
-        android:id="@+id/editTextPass"
+        android:id="@+id/editTextPassEditable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextApellido"
-        android:layout_alignStart="@+id/editTextApellido"
-        android:layout_below="@+id/editTextApellido"
+        android:layout_alignLeft="@+id/editTextApellidoEditable"
+        android:layout_alignStart="@+id/editTextApellidoEditable"
+        android:layout_below="@+id/editTextApellidoEditable"
         android:layout_marginTop="41dp"
         android:ems="10"
         android:hint="pass"
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/editTextTimeEditable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextPass"
-        android:layout_alignStart="@+id/editTextPass"
-        android:layout_below="@+id/editTextPass"
+        android:layout_alignLeft="@+id/editTextPassEditable"
+        android:layout_alignStart="@+id/editTextPassEditable"
+        android:layout_below="@+id/editTextPassEditable"
         android:layout_marginTop="46dp"
         android:ems="10"
         android:hint="time"
@@ -62,9 +62,9 @@
         android:id="@+id/buttonInsertReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editTextTime"
-        android:layout_alignRight="@+id/editTextTime"
-        android:layout_below="@+id/editTextTime"
+        android:layout_alignEnd="@+id/editTextTimeEditable"
+        android:layout_alignRight="@+id/editTextTimeEditable"
+        android:layout_below="@+id/editTextTimeEditable"
         android:layout_marginTop="20dp"
         android:text="INSERTAR REGISTRO" />
 </RelativeLayout>
