@@ -30,14 +30,14 @@ public class EditarActivity extends AppCompatActivity {
             // actividad , MostrarActivity ,
             usuarioEditar = extras.getInt("idQueVieneConElIntent");
 
+
+        }
+
             // Cargamos también las variables con sus editText correspondientes
             editTextNombre = (EditText) findViewById(R.id.editTextName);
             editTextApellido = (EditText) findViewById(R.id.editTextApellido);
             editTextPass = (EditText) findViewById(R.id.editTextPass);
             editTextTime = (EditText) findViewById(R.id.editTextTime);
-
-
-        }
 
 
 
