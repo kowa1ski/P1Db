@@ -72,11 +72,11 @@ public class EditarActivity extends AppCompatActivity {
                     Voy a usar , getColumnIndex , y getString indistintamente
                     aunque sirvan para lo mismo por ser este un ejercicio.
                      */
-                    editTextNombre.setText(cursor.getString(1));
+                    editTextNombre.setText(cursor.getString(cursor.getColumnIndex(VigContract.VigEntry.CN_NOMBRE)));
                     // En este caso atrapamos la 3a columna con el número 2...
                     editTextApellido.setText(cursor.getString(2));
                     // ... y aquí la 4a con el número 3.
-                    editTextPass.setText(cursor.getString(3));
+                    editTextPass.setText(cursor.getString(cursor.getColumnIndex(VigContract.VigEntry.CN_PASS)));
                     editTextTime.setText(cursor.getString(4));
 
 
