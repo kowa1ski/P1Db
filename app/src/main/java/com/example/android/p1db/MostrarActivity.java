@@ -154,11 +154,28 @@ public class MostrarActivity extends AppCompatActivity {
             // queremos detectar cuándo se pulsa el icono de eliminar
             // y le damos funcionalidad. El botón se
             // llama en el xml , eliminarItem ,.
-            if (item.getItemId() == R.id.eliminarItem) {
+
+            // He cambiado el if por el swich porque tengo que detectar ahora
+            // qué botón es el que está pulsando
+            switch (item.getItemId()) {
+
+                case R.id.eliminarItem :
                 // cuando se pulse llamaremos a la función , eliminarUsuario ,.
                 eliminarUsuario();
                 // Y le decimos que luego se cierre con la siguiente instrucción
                 mode.finish();
+
+                    break;
+
+                // Esto lo he codificado yo sólo. Le estoy dando funcionalidad al
+                // botón de eliminar. Hago una pequeña prueba con un , Toast ,
+                case R.id.editarItem :
+
+                    Toast.makeText(MostrarActivity.this, "el botón editar funciona", Toast.LENGTH_LONG).show();
+
+                    break;
+
+                default:
             }
 
 
