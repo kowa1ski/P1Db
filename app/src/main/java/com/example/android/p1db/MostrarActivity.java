@@ -180,6 +180,17 @@ public class MostrarActivity extends AppCompatActivity {
                     in.putExtra("idQueVieneConElIntent", usu.get_id());
                     // Y le pegamos al , Intent ,
                     startActivity(in);
+                    /*
+                    Esto del mode no sé muy bien por qué lo hace en el tutorial
+                    He mirado por internet y pone que lo que hace es finalizar la actividad,
+                    o sea que una secuencia normal es a-b-c y vuelve c-b-a y esta otra
+                    sería así a-b(con , finish() ,)-c vuelta será c-a.
+                    Sin embargo he probado y no hay diferencia en nada tal y como
+                    está escrito este código, al menos.
+                    Nota: he probado a eliminar esta línea de , mode.finish , y la
+                    app funciona perfectamente igual que si no la tuviera.
+                     */
+                    mode.finish();
 
 
                     break;
@@ -248,6 +259,17 @@ public class MostrarActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    // Creamos este método, el cual ya viene predefinido para continuar
+    // con la actividad cuando venimos de vuelta de la otra pantalla
+    // de edición.
+    public void onResume(){
+        super.onResume();
+        // borramos la lista...
+        vigClassArrayList.removeAll(vigClassArrayList);
+        // ... y la volvemos a cargar.
+        LlenarLista();
     }
 
 

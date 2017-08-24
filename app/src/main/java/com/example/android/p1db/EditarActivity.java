@@ -111,6 +111,8 @@ public class EditarActivity extends AppCompatActivity {
                     VigContract.VigEntry._ID +" = " + usuarioEditar, null);
             if (response > 0 ){
                 Toast.makeText(this, "EL REGISTRO SE HA EDITADO", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "hubo un problema, registro no editado", Toast.LENGTH_LONG).show();
             }
 
         }
