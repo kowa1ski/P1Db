@@ -1,10 +1,13 @@
 package com.example.android.p1db;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.p1db.data.VigContract;
 import com.example.android.p1db.data.VigDbHelper;
@@ -79,13 +82,37 @@ public class EditarActivity extends AppCompatActivity {
                     editTextPass.setText(cursor.getString(cursor.getColumnIndex(VigContract.VigEntry.CN_PASS)));
                     editTextTime.setText(cursor.getString(4));
 
-
-
                 }
 
             } finally {
 
             }
+        }
+
+
+
+    }
+
+    public void editar(View view){
+
+        // Lo de siempre bh(que ahora lo pongo como vigDbHelper...db etc.
+        VigDbHelper vigDbHelper = new VigDbHelper(this);
+        if(vigDbHelper != null){
+            SQLiteDatabase db = vigDbHelper.getWritableDatabase();
+
+            // Montamos el contenedor de valores
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(VigContract.VigEntry.CN_NOMBRE, editTextNombre.getText().toString());
+            contentValues.put(VigContract.VigEntry.CN_APELLIDO, editTextApellido.getText().toString());
+            contentValues.put(VigContract.VigEntry.CN_PASS, editTextPass.getText().toString());
+            contentValues.put(VigContract.VigEntry.CN_TIME, editTextTime.getText().toString());
+            // Ahora sí, vamos a actualizar el registro
+            long response = db.update(VigContract.VigEntry.TABLE_NAME, contentValues,
+                    VigContract.VigEntry._ID +" = " + usuarioEditar, null);
+            if (response > 0 ){
+                Toast.makeText(this, "EL REGISTRO SE HA EDITADO", Toast.LENGTH_LONG).show();
+            }
+
         }
 
 

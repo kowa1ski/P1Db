@@ -45,5 +45,6 @@
         android:layout_width="223dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:onClick="editar"
         android:text="EJECUTAR EDICION" />
 </LinearLayout>
